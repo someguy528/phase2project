@@ -2,6 +2,8 @@ This project used the Create React App as the basis for initialization.
 
 We use react-router-dom 5.2.0 to tie in with the lessons.
 
+https://en.wikipedia.org/wiki/ISO_8601
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -15,11 +15,10 @@ function NewsArticle({article}){
                 <li>Reported By: {author}</li>
                 <li>{publishedAt} </li>
                 <li>{description}</li>
-                <li>{urlToImage}</li>
+                {/* <li>{urlToImage}</li> */}
                 <img src={urlToImage} />
                 <li>Short Summary: {content}</li>
                 <li>Rest of the story at: <a href={url}>{url}</a> </li>
-                
             </ul>
         </article>
         </div>

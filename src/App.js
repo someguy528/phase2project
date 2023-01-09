@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from './NavBar';
 import Home from './Home';
 import News from "./News";
+import AddArticle from './AddArticle';
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -31,6 +32,9 @@ function App() {
       <Switch>
         <Route path="/news" >
           <News articles={articles} />
+        </Route>
+        <Route path="/addarticle" >
+          <AddArticle />
         </Route>
         <Route exact path='/'>
           <Home />
