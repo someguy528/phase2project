@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-function AddArticle() {
+function AddArticle({onAddArticle}) {
 
     const [form,setForm] = useState({
         source: "",
@@ -20,14 +20,38 @@ function AddArticle() {
         })
         console.log(form)
         // console.log(Date())
-        
+        // const time = new Date();
+        // const formattedTime = time.toISOString();
+        // console.log(time.toISOString());
     }
 
     function handleSubmit(event){
         event.preventDefault();
         console.log("Submitted");
         const time = new Date();
-        console.log(time.toISOString());
+        const formattedTime = time.toISOString();
+        fetch("https://phase-2-project-db.onrender.com/articles", {
+            method: "POST",
+            headers: {
+                "Content-Type" : "application/json"
+            },
+            body: JSON.stringify({
+                source: {
+                    id:null,
+                    name: form.source
+                },
+                author: form.author,
+                title: form.title,
+                description: form.description,
+                url: form.url,
+                urlToImage: form.urlToImage,
+                publishedAt: formattedTime,
+                content: form.content,
+            })
+        })
+        .then(resp => resp.json())
+        .then(data => onAddArticle(data) )
+
     }
 
     return (
@@ -48,7 +72,7 @@ function AddArticle() {
                 <input type="text" onChange={handleChangeForm} name="urlToImage" /> 
                 <label> News Content Text Abstract: </label>
                 <textarea type="text" onChange={handleChangeForm} name="content" /> 
-                <input type="submit" onClick={handleSubmit} ></input>
+                <input type="submit" onClick={handleSubmit} />
             </form>
         </div>
     )

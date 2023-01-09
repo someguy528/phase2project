@@ -25,6 +25,10 @@ function App() {
       .then(data => setArticles(data))
   }, [])
 
+  function handleAddArticle(newArticle){
+    setArticles([...articles, newArticle]); 
+  }
+
   return (
     <div>
       <Clock />
@@ -34,7 +38,7 @@ function App() {
           <News articles={articles} />
         </Route>
         <Route path="/addarticle" >
-          <AddArticle />
+          <AddArticle onAddArticle={handleAddArticle} />
         </Route>
         <Route exact path='/'>
           <Home />
