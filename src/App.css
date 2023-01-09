@@ -75,5 +75,11 @@ form textarea[name="content"]{
   form textarea[name="content"]{
     width: 70%;
   }
+}
 
+img.preview {
+  display: block;
+  max-width: 40%;
+  width: 300px;
+  height: auto;
 }

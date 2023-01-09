@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function AddArticle({onAddArticle}) {
 
@@ -12,6 +13,8 @@ function AddArticle({onAddArticle}) {
         urlToImage: "",
         content: ""
     })
+
+    const history = useHistory();
 
     function handleChangeForm(event){
         setForm({
@@ -50,7 +53,10 @@ function AddArticle({onAddArticle}) {
             })
         })
         .then(resp => resp.json())
-        .then(data => onAddArticle(data) )
+        .then(data => {
+            onAddArticle(data);
+            history.push("/news");
+         })
 
     }
 
