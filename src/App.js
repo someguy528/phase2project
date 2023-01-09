@@ -29,13 +29,18 @@ function App() {
     setArticles([...articles, newArticle]); 
   }
 
+  function handleRemoveArticle(removedArticle){
+    const updatedArticles = articles.filter(article => article.id !== removedArticle.id );
+    setArticles(updatedArticles);
+  }
+
   return (
     <div>
       <Clock />
       <NavBar />
       <Switch>
         <Route path="/news" >
-          <News articles={articles} />
+          <News articles={articles} onRemoveArticle={handleRemoveArticle} />
         </Route>
         <Route path="/addarticle" >
           <AddArticle onAddArticle={handleAddArticle} />
