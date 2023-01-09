@@ -13,10 +13,10 @@ function NavBar(){
 }
     return (
         <div>
-            <NavLink to="/" activeStyle={clickedStyle} >
+            <NavLink exact to="/" style={defaultStyle} activeStyle={clickedStyle} >
                 Home Page
             </NavLink>
-            <NavLink to="/news" >
+            <NavLink to="/news" style={defaultStyle} activeStyle={clickedStyle} >
                 Current News
             </NavLink>
         </div>
