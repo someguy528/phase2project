@@ -4,30 +4,23 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from './NavBar';
 import Home from './Home';
 import News from "./News";
-// import AddArticle from './NewsAddArticle';
 
 function App() {
   const [articles, setArticles] = useState([]);
-
-  function Clock() {
-    const [time, setTime] = useState(new Date());
-    useEffect(() => {
-      setInterval(() => {
-        setTime(new Date());
-      }, 1000);
-    }, []);
-    return <div>The Date is: {time.toString()}</div>;
-  };
+  const [newsLoaded, setNewsLoaded] = useState(false);
 
   useEffect(() => {
     fetch("https://phase-2-project-db.onrender.com/articles")
       .then(resp => resp.json())
-      .then(data => setArticles(data))
-  }, [])
+      .then(data => {
+        setArticles(data);
+        setNewsLoaded(true);
+      })
+  }, []);
 
   function handleAddArticle(newArticle){
     setArticles([...articles, newArticle]); 
-  }
+  };
 
   function handleEditArticle(changedArticle){
     const updatedArticles = articles.map(article => {
@@ -37,16 +30,17 @@ function App() {
       return article
     });
     setArticles(updatedArticles)
-  }
+  };
 
   function handleRemoveArticle(removedArticle){
     const updatedArticles = articles.filter(article => article.id !== removedArticle.id );
     setArticles(updatedArticles);
-  }
+  };
+
+  if(!newsLoaded) return <h1>Loading</h1>;
 
   return (
     <div>
-      <Clock />
       <NavBar />
       <Switch>
         <Route path="/news" >

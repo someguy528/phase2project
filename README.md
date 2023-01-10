@@ -1,6 +1,8 @@
 This project used the Create React App as the basis for initialization.
 
-We use react-router-dom 5.2.0 to tie in with the lessons.
+It consists of a simple news display utilizing Client-Side Routing combined with an external JSON server hosted on Render.com . The news articles used were taken from newsapi.org .  
+
+We use react-router-dom 5.2.0 to tie in with the lessons provided by Flatiron School.
 
 https://en.wikipedia.org/wiki/ISO_8601
 
