@@ -22,10 +22,6 @@ function AddArticle({onAddArticle}) {
             [event.target.name] : event.target.value
         })
         console.log(form)
-        // console.log(Date())
-        // const time = new Date();
-        // const formattedTime = time.toISOString();
-        // console.log(time.toISOString());
     }
 
     function handleSubmit(event){
@@ -65,19 +61,19 @@ function AddArticle({onAddArticle}) {
             <h1>Add an Article</h1>
             <form>
                 <label> Source: </label> 
-                <input type="text" onChange={handleChangeForm} name="source" /> 
+                <input type="text" value={form.source} onChange={handleChangeForm} name="source" /> 
                 <label> Author: </label>
-                <input type="text" onChange={handleChangeForm} name="author" /> 
+                <input type="text" value={form.author} onChange={handleChangeForm} name="author" /> 
                 <label> Title: </label>
-                <input type="text" onChange={handleChangeForm} name="title" /> 
+                <input type="text" value={form.title} onChange={handleChangeForm} name="title" /> 
                 <label> Short Description: </label>
-                <input type="text" onChange={handleChangeForm} name="description" /> 
+                <input type="text" value={form.description} onChange={handleChangeForm} name="description" /> 
                 <label> News Url: </label>
-                <input type="text" onChange={handleChangeForm} name="url" /> 
+                <input type="text" value={form.url} onChange={handleChangeForm} name="url" /> 
                 <label> Url to Image: </label>
-                <input type="text" onChange={handleChangeForm} name="urlToImage" /> 
+                <input type="text" value={form.urlToImage} onChange={handleChangeForm} name="urlToImage" /> 
                 <label> News Content Text Abstract: </label>
-                <textarea type="text" onChange={handleChangeForm} name="content" /> 
+                <textarea type="text" value={form.content} onChange={handleChangeForm} name="content" /> 
                 <input type="submit" onClick={handleSubmit} />
             </form>
         </div>

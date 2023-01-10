@@ -1,12 +1,14 @@
 import React from "react";
-import { useParams , useHistory } from "react-router-dom";
+import { useParams , useRouteMatch, useHistory, Redirect , Link} from "react-router-dom";
 
 function NewsArticle({articles , onRemoveArticle}){
 
     const history = useHistory(); 
     const {articleId} = useParams();
+    const route = useRouteMatch().url; 
+
     const article = articles.filter(a => a.id === parseFloat(articleId))[0];
-    console.log(article)
+    console.log(route)
 
     function handleDeleteClick(){
         fetch(`https://phase-2-project-db.onrender.com/articles/${article.id}` ,{
@@ -19,12 +21,7 @@ function NewsArticle({articles , onRemoveArticle}){
         })
     }
 
-
     const currentTime = Date(article.publishedAt).toString();
-
-
-    // const currentTime = article.publishedAt.substring(0,10)
-    // console.log(currentTime)
 
     return (
         <div>
@@ -39,6 +36,8 @@ function NewsArticle({articles , onRemoveArticle}){
                 <li>Short Summary: {article.content}</li>
                 <li>Rest of the story at: <a href={article.url}>{article.url}</a> </li>
             </ul>
+            <Link to={`${route}/edit`} >Edit Article</Link>
+            {/* <button onClick={handleEditSwitchClick} > Edit Article </button> */}
             <button onClick={handleDeleteClick} > Remove Article </button>
         </article>
         </div>

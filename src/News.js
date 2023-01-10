@@ -2,8 +2,9 @@ import React from "react";
 import NewsArticle from "./NewsArticle";
 import {Switch, Route,  Link , useRouteMatch} from "react-router-dom";
 import NewsList from "./NewsList";
+import NewsArticleEdit from "./NewsArticleEdit";
 
-function News({ articles, onRemoveArticle }) {
+function News({ articles, onRemoveArticle, onEditArticle }) {
     // const allArticles = articles.map(article => (
     //     <NewsArticle key={article.id} article={article} />
     // ))
@@ -27,8 +28,11 @@ function News({ articles, onRemoveArticle }) {
                 <Route exact path="/news" > 
                     <NewsList articles={articles} onRemoveArticle={onRemoveArticle} />
                 </Route>
-                <Route path={`${match.url}/:articleId`} >
+                <Route exact path={`${match.url}/:articleId`} >
                     <NewsArticle articles={articles} onRemoveArticle={onRemoveArticle} />
+                </Route>
+                <Route path={`${match.url}/:articleId/edit`} >
+                    <NewsArticleEdit articles={articles} onEditArticle={onEditArticle} />
                 </Route>
             </Switch>
             <section>

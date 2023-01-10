@@ -29,6 +29,16 @@ function App() {
     setArticles([...articles, newArticle]); 
   }
 
+  function handleEditArticle(changedArticle){
+    const updatedArticles = articles.map(article => {
+      if(article.id === changedArticle.id){
+        return changedArticle
+      }
+      return article
+    });
+    setArticles(updatedArticles)
+  }
+
   function handleRemoveArticle(removedArticle){
     const updatedArticles = articles.filter(article => article.id !== removedArticle.id );
     setArticles(updatedArticles);
@@ -40,7 +50,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route path="/news" >
-          <News articles={articles} onRemoveArticle={handleRemoveArticle} />
+          <News articles={articles} onRemoveArticle={handleRemoveArticle} onEditArticle={handleEditArticle} />
         </Route>
         <Route path="/addarticle" >
           <AddArticle onAddArticle={handleAddArticle} />
