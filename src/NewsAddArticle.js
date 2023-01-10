@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function AddArticle({onAddArticle}) {
+function NewsAddArticle({onAddArticle}) {
 
     const [form,setForm] = useState({
         source: "",
@@ -80,4 +80,4 @@ function AddArticle({onAddArticle}) {
     )
 }
 
-export default AddArticle
+export default NewsAddArticle

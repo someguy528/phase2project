@@ -17,10 +17,10 @@ function NavBar() {
             <NavLink exact to="/" style={defaultStyle} activeStyle={clickedStyle} >
                 Home Page 
             </NavLink>
-            <NavLink to="/news" style={defaultStyle} activeStyle={clickedStyle} >
+            <NavLink exact to="/news" style={defaultStyle} activeStyle={clickedStyle} >
                 Current News 
             </NavLink>
-            <NavLink to="/addarticle" style={defaultStyle} activeStyle={clickedStyle} >
+            <NavLink exact to="/news/addarticle" style={defaultStyle} activeStyle={clickedStyle} >
                 Add An Article 
             </NavLink>
         </div>

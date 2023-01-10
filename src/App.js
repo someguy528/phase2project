@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import NavBar from './NavBar';
 import Home from './Home';
 import News from "./News";
-import AddArticle from './AddArticle';
+// import AddArticle from './NewsAddArticle';
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -50,11 +50,9 @@ function App() {
       <NavBar />
       <Switch>
         <Route path="/news" >
-          <News articles={articles} onRemoveArticle={handleRemoveArticle} onEditArticle={handleEditArticle} />
+          <News articles={articles} onRemoveArticle={handleRemoveArticle} onEditArticle={handleEditArticle} onAddArticle={handleAddArticle} />
         </Route>
-        <Route path="/addarticle" >
-          <AddArticle onAddArticle={handleAddArticle} />
-        </Route>
+       
         <Route exact path='/'>
           <Home />
         </Route>
