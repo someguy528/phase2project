@@ -26,17 +26,14 @@ function NewsArticle({articles , onRemoveArticle}){
     return (
         <div>
         <article>
-            <ul>
-                <li>{article.title}</li>
-                <li>From: {article.source.name}</li>
-                <li>Reported By: {article.author}</li>
-                <li>Posted {currentTime}</li>
-                <li>{article.description}</li>
+                <h3>{article.title}</h3>
+                <h4>From: {article.source.name}</h4>
+                <h5>Reported By: {article.author}, Posted {currentTime}</h5>
                 <img className="imgFull" src={article.urlToImage} />
-                <li>Short Summary: {article.content}</li>
-                <li>Rest of the story at: <a href={article.url}>{article.url}</a> </li>
-            </ul>
-            <Link to={`${route}/edit`} >Edit Article</Link>
+                <header>{article.description}</header>
+                <p>Short Summary: {article.content}</p>
+                <p>Rest of the story at: <a href={article.url}>{article.url}</a> </p>
+            <Link className="edit" to={`${route}/edit`} >Edit Article</Link>
             {/* <button onClick={handleEditSwitchClick} > Edit Article </button> */}
             <button onClick={handleDeleteClick} > Remove Article </button>
         </article>

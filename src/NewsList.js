@@ -15,7 +15,7 @@ function NewsList({ articles, onRemoveArticle }) {
         // }
 
         return (
-            <section key={article.id}>
+            <section className="articleSection" key={article.id}>
                 <img className="imgPreview" src={article.urlToImage} />
                 <Link to={`/news/${article.id}`} > {article.title}  </Link>
                 <header>Posted {currentTime}</header>
