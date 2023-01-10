@@ -25,7 +25,7 @@ function NewsArticle({articles , onRemoveArticle}){
 
     return (
         <div>
-        <article>
+        <article className="article" >
                 <h3>{article.title}</h3>
                 <h4>From: {article.source.name}</h4>
                 <h5>Reported By: {article.author}, Posted {currentTime}</h5>
