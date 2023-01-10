@@ -1,29 +1,41 @@
 import React from "react";
+import { useParams , useHistory } from "react-router-dom";
 
-function NewsArticle({article , onRemoveArticle}){
+function NewsArticle({articles , onRemoveArticle}){
 
-//    const {id, author, title, description, url, urlToImage, publishedAt, content} = article;
-    // const source = article.source.name;
+    const history = useHistory(); 
+    const {articleId} = useParams();
+    const article = articles.filter(a => a.id === parseFloat(articleId))[0];
+    console.log(article)
+
     function handleDeleteClick(){
         fetch(`https://phase-2-project-db.onrender.com/articles/${article.id}` ,{
             method: "DELETE"
         })
         .then(resp=> resp.json())
-        .then(() =>onRemoveArticle(article))
+        .then(() =>{
+            onRemoveArticle(article);
+            history.push("/news");
+        })
     }
+
+
+    const currentTime = Date(article.publishedAt).toString();
+
+
+    // const currentTime = article.publishedAt.substring(0,10)
+    // console.log(currentTime)
 
     return (
         <div>
         <article>
             <ul>
-                {/* <li>Article {article.id}</li> */}
                 <li>{article.title}</li>
-                <li>{article.source.name}</li>
+                <li>From: {article.source.name}</li>
                 <li>Reported By: {article.author}</li>
-                <li>{article.publishedAt} </li>
+                <li>Posted {currentTime}</li>
                 <li>{article.description}</li>
-                {/* <li>{urlToImage}</li> */}
-                <img src={article.urlToImage} />
+                <img className="imgFull" src={article.urlToImage} />
                 <li>Short Summary: {article.content}</li>
                 <li>Rest of the story at: <a href={article.url}>{article.url}</a> </li>
             </ul>

@@ -57,6 +57,26 @@ form textarea[name="content"]{
   width: 50em;
 }
 
+
+
+.imgPreview {
+  display: block;
+  max-width: 40%;
+  width: 300px;
+  height: auto;
+}
+
+.imgFull {
+  display: block ;
+  max-width: 60%;
+  width: 500px;
+  height: auto;
+}
+
+.deleteBtn{
+  display: block;
+}
+
 @media (max-width: 700px){
   form input {
     height: 2em;
@@ -75,11 +95,4 @@ form textarea[name="content"]{
   form textarea[name="content"]{
     width: 70%;
   }
-}
-
-img.preview {
-  display: block;
-  max-width: 40%;
-  width: 300px;
-  height: auto;
 }

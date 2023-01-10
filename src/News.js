@@ -1,6 +1,7 @@
 import React from "react";
 import NewsArticle from "./NewsArticle";
-import { Link } from "react-router-dom";
+import {Switch, Route,  Link , useRouteMatch} from "react-router-dom";
+import NewsList from "./NewsList";
 
 function News({ articles, onRemoveArticle }) {
     // const allArticles = articles.map(article => (
@@ -17,16 +18,21 @@ function News({ articles, onRemoveArticle }) {
     //     </div>
     // )
 
+    const match = useRouteMatch();
+
     return (
         <div>
             <h1>News</h1>
+            <Switch>
+                <Route exact path="/news" > 
+                    <NewsList articles={articles} onRemoveArticle={onRemoveArticle} />
+                </Route>
+                <Route path={`${match.url}/:articleId`} >
+                    <NewsArticle articles={articles} onRemoveArticle={onRemoveArticle} />
+                </Route>
+            </Switch>
             <section>
-                {articles.map(article => (
-                    <div key={article.id}>
-                        <img className="preview" src={article.urlToImage} /> 
-                        <Link to={`/news/${article.id}`} > {article.title} </Link>
-                    </div>
-                ))}
+                
             </section>
         </div>
     )
