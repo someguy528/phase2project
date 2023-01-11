@@ -46,7 +46,6 @@ function App() {
         <Route path="/news" >
           <News articles={articles} onRemoveArticle={handleRemoveArticle} onEditArticle={handleEditArticle} onAddArticle={handleAddArticle} />
         </Route>
-       
         <Route exact path='/'>
           <Home />
         </Route>

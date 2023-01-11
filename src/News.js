@@ -6,19 +6,6 @@ import NewsArticleEdit from "./NewsArticleEdit";
 import NewsAddArticle from "./NewsAddArticle";
 
 function News({ articles, onRemoveArticle, onEditArticle, onAddArticle }) {
-    // const allArticles = articles.map(article => (
-    //     <NewsArticle key={article.id} article={article} />
-    // ))
-
-    // return (
-    //     <div>
-    //         <h1>News</h1>
-    //         <section>
-    //             {articles.map(article => (
-    //                 <NewsArticle key={article.id} article={article} onRemoveArticle={onRemoveArticle} />))}
-    //         </section>
-    //     </div>
-    // )
 
     const match = useRouteMatch();
 
@@ -26,8 +13,8 @@ function News({ articles, onRemoveArticle, onEditArticle, onAddArticle }) {
         <div>
             <h1>News</h1>
             <Switch>
-                <Route exact path="/news" >
-                    <NewsList articles={articles} onRemoveArticle={onRemoveArticle} />
+                <Route exact path={`${match.url}`} >
+                    <NewsList articles={articles}  />
                 </Route>
                 <Route exact path={`${match.url}/addarticle`} >
                     <NewsAddArticle onAddArticle={onAddArticle} />
@@ -38,7 +25,6 @@ function News({ articles, onRemoveArticle, onEditArticle, onAddArticle }) {
                 <Route exact path={`${match.url}/:articleId/edit`} >
                     <NewsArticleEdit articles={articles} onEditArticle={onEditArticle} />
                 </Route>
-
             </Switch>
             <section>
 

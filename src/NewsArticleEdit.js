@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, useRouteMatch } from "react-router-dom";
 
 function NewsArticleEdit({ articles, onEditArticle }) {
     const articleId = useParams().articleId
@@ -15,6 +15,8 @@ function NewsArticleEdit({ articles, onEditArticle }) {
         content: article.content,
     });
     const history = useHistory();
+    const route = useRouteMatch();
+    console.log(route)
 
     function handleChangeForm(event) {
         setEditForm({
