@@ -3,10 +3,9 @@ import { Link, useHistory } from "react-router-dom";
 
 function NewsList({ articles }) {
 
-    const history = useHistory();
+    // const history = useHistory();
 
     const allArticles = articles.map(article => {
-
 
         const currentTime = new Date(article.publishedAt).toString();
 

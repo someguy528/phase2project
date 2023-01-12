@@ -15,8 +15,7 @@ function NewsArticleEdit({ articles, onEditArticle }) {
         content: article.content,
     });
     const history = useHistory();
-    const route = useRouteMatch();
-    console.log(route)
+    const route = useRouteMatch().url;
 
     function handleChangeForm(event) {
         setEditForm({
@@ -49,7 +48,7 @@ function NewsArticleEdit({ articles, onEditArticle }) {
         .then(resp=> resp.json())
         .then(data => {
             onEditArticle(data);
-            history.push(`/news/${articleId}`);
+            history.push(route.replace("/edit",""));
         });
     }
 
