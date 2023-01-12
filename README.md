@@ -4,6 +4,9 @@ It consists of a simple news display utilizing Client-Side Routing combined with
 
 We use react-router-dom 5.2.0 to tie in with the lessons provided by Flatiron School.
 
+Backend api is located here: https://github.com/someguy528/phase2projectserver
+Backend hosted at render: https://phase-2-project-db.onrender.com/articles
+
 https://en.wikipedia.org/wiki/ISO_8601
 
 # Getting Started with Create React App
