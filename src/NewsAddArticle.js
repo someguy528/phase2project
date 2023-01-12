@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory , useRouteMatch} from "react-router-dom";
 
 function NewsAddArticle({onAddArticle}) {
 
@@ -15,6 +15,7 @@ function NewsAddArticle({onAddArticle}) {
     })
 
     const history = useHistory();
+    const route = useRouteMatch().url;
 
     function handleChangeForm(event){
         setForm({
@@ -51,7 +52,7 @@ function NewsAddArticle({onAddArticle}) {
         .then(resp => resp.json())
         .then(data => {
             onAddArticle(data);
-            history.push("/news");
+            history.push(route.replace("/addarticle", ""));
          })
 
     }
