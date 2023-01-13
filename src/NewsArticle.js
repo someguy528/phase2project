@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams , useRouteMatch, useHistory, Redirect , Link} from "react-router-dom";
+import { useParams , useRouteMatch, useHistory, Link} from "react-router-dom";
 
 function NewsArticle({articles , onRemoveArticle}){
 
@@ -34,7 +34,6 @@ function NewsArticle({articles , onRemoveArticle}){
                 <p>Short Summary: {article.content}</p>
                 <p>Rest of the story at: <a href={article.url}>{article.url}</a> </p>
             <Link className="edit" to={`${route}/edit`} >Edit Article</Link>
-            {/* <button onClick={handleEditSwitchClick} > Edit Article </button> */}
             <button onClick={handleDeleteClick} > Remove Article </button>
         </article>
         </div>

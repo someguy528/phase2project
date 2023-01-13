@@ -1,9 +1,15 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route} from "react-router-dom";
 import NavBar from './NavBar';
 import Home from './Home';
 import News from "./News";
+
+// import NewsArticle from "./NewsArticle";
+// import NewsList from "./NewsList";
+// import NewsArticleEdit from "./NewsArticleEdit";
+// import NewsAddArticle from "./NewsAddArticle";
+
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -36,7 +42,7 @@ function App() {
     const updatedArticles = articles.filter(article => article.id !== removedArticle.id );
     setArticles(updatedArticles);
   };
-
+  
   if(!newsLoaded) return <h1>Loading</h1>;
 
   return (
