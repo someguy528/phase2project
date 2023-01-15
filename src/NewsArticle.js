@@ -21,7 +21,7 @@ function NewsArticle({articles , onRemoveArticle}){
         })
     }
 
-    const currentTime = Date(article.publishedAt).toString();
+    const currentTime = new Date(article.publishedAt).toString();
 
     return (
         <div>
